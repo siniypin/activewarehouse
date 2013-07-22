@@ -266,7 +266,7 @@ module ActiveWarehouse #:nodoc
         child_level = child_level.map{|e| connection.quote_column_name(e)}
 
         select_sql = "distinct #{child_level.join(', ')}"
-        select_sql += ", #{order}" unless order == child_level.to_s
+        #select_sql += ", #{order}" unless order == child_level.to_s
         options = {:select => select_sql, :order => order}
 
         options[:conditions] = conditions unless conditions.nil?
