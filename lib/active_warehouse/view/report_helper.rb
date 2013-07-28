@@ -41,9 +41,9 @@ module ReportHelper
     x.table(table_attributes) do |x|
   
       x.tr do |x| # column dimension
-        x.th({"data-field" => "name"}) {|x| x << "#{row_dimension.hierarchy_level_label}"}
+        x.th({"data-field" => "#{row_dimension.hierarchy_level_label}"}) {|x| x << "#{row_dimension.hierarchy_level_label}"}
         column_dimension.values.each do |col_dim_value|
-          x.th({:colspan => report.fact_attributes.length}) do |x|
+          x.th({:colspan => report.fact_attributes.length, "data-field" => "#{col_dim_value}"}) do |x|
             x << link_to_if(column_dimension.has_children?, col_dim_value, table_view.column_link(col_dim_value))
           end
         end
