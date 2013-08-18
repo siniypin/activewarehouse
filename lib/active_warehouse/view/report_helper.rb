@@ -10,6 +10,32 @@ module ReportHelper
     raise "Unsupported Render Method.  Please use render_report_from instead."
   end
   
+  def render_report_json(table_view)
+    column_dimension = table_view.column_dimension
+    row_dimension    = table_view.row_dimension
+
+    report_fields = [] << row_dimension.hierarchy_level_label
+    column_dimension.values.each do |col_dim_value|
+      report_fields << col_dim_value
+    end
+
+    result = []
+
+    table_view.data_rows.each do |data_row|
+      result_row = {}
+
+      result_row[report_fields.first]= data_row.dimension_value
+
+      data_row.cells.each_with_index do |cell, index| # aggregated facts
+        result_row[report_fields[index+1]]= cell.value
+      end
+
+      result << result_row
+    end
+
+    result
+  end
+  
   def render_report_from(table_view, html_options = {})
     
     # must use YUI if sorting is desired
