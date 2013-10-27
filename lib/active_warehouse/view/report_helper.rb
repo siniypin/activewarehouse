@@ -26,11 +26,13 @@ module ReportHelper
 
       result_row[report_fields.first]= data_row.dimension_value
 
-      data_row.cells.each_with_index do |cell, index| # aggregated facts
-        result_row[report_fields[index+1]]= cell.value
-      end
+	  unless data_row.cells.reduce(:+) == 0
+        data_row.cells.each_with_index do |cell, index| # aggregated facts
+          result_row[report_fields[index+1]]= cell.value
+        end
 
-      result << result_row
+        result << result_row
+	  end
     end
 
     result
