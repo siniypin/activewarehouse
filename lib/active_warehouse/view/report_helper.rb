@@ -11,8 +11,8 @@ module ReportHelper
     JsonReportFormatter.new.render_report(table_view)
   end
 
-  def render_report_csv(table_view)
-    CsvReportFormatter.new.render_report(table_view)
+  def render_report_csv(table_view, options = {})
+    CsvReportFormatter.new.render_report(table_view, options)
   end
 
   def render_report_from(table_view, html_options = {})
