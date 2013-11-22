@@ -1,4 +1,7 @@
 require 'active_warehouse/view/report_helper'
+require 'active_warehouse/view/html_report_formatter'
+require 'active_warehouse/view/json_report_formatter'
+require 'active_warehouse/view/csv_report_formatter'
 require 'active_warehouse/view/abstract_view'
 require 'active_warehouse/view/table_view'
 require 'active_warehouse/view/sql_view'
