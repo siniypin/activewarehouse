@@ -1,5 +1,5 @@
 class JsonReportFormatter
-  def render_report table_view, options = {}
+  def render_report(table_view, options = {})
     column_dimension = table_view.column_dimension
     row_dimension = table_view.row_dimension
 

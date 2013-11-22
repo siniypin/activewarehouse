@@ -3,11 +3,8 @@ require 'builder'
 module ReportHelper
   # include ActiveWarehouse::Report::YuiAdapter
 
-  # UNSUPPORTED METHOD. Please use render_report_from instead.
-  # * <tt>report</tt>: The report instance
-  # * <tt>html_options</tt>: HTML options
-  def render_report(report, html_options={})
-    raise "Unsupported Render Method.  Please use render_report_from instead."
+  def render_report(table_view, options={})
+    Module.eval("#{options.delete(:format).to_s.classify}ReportFormatter").new.render_report(table_view, options)
   end
 
   def render_report_json(table_view)

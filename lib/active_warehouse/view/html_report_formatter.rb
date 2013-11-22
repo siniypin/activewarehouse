@@ -1,5 +1,5 @@
 class HtmlReportFormatter
-  def render_report table_view, html_options = {}
+  def render_report(table_view, html_options = {})
 
     # must use YUI if sorting is desired
     if table_view.sortable?

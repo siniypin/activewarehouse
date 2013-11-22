@@ -1,7 +1,7 @@
 require 'csv'
 
 class CsvReportFormatter
-  def render_report table_view, options = {}
+  def render_report(table_view, options = {})
     CSV.generate(options) do |csv|
       column_dimension = table_view.column_dimension
       row_dimension = table_view.row_dimension
