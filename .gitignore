@@ -9,3 +9,4 @@ tmp/active_warehouse
 *.gem
 *.lock
 db/schema.rb
+.idea/*
