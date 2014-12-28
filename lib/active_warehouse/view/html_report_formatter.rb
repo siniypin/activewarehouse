@@ -1,4 +1,6 @@
 class HtmlReportFormatter
+  include ActionView::Helpers::UrlHelper
+
   def render_report(table_view, html_options = {})
 
     # must use YUI if sorting is desired
